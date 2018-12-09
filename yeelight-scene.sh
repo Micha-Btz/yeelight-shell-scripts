@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup your scenes and adjust the scenes below
-SCENES="On|Off|Sunrise|Sunrise2|Sunset|Sleep|Rainbow|Disco|2700|4300|6500|Off1Min|Stop|Dim|Warm"
+SCENES="On|Off|Sunrise|Sunrise2|Sunset|Sleep|Rainbow|Disco|2700|4300|6500|Off1Min|Stop|Dim|Warm|Michai|Nightlight"
 
 set -E
 trap '[ "$?" -ne 99 ] || exit 99' ERR
@@ -35,7 +35,7 @@ rainbow() {
 	done
 }
 
-[[ "$#" -ne 2 ]] && usage && exit 1
+#[[ "$#" -ne 2 ]] && usage && exit 1
 [[ ! "$1" =~ ^[0-9]+$ ]] && echo "ERROR: $IDMSG" && exit 1
 [[ ! "$2" =~ ^($SCENES)$ ]] && echo "ERROR: $SCENEMSG" && exit 1
 
@@ -60,5 +60,7 @@ rainbow() {
 [[ "$2" = "Stop" ]] && SC='"method":"stop_cf","params":[]' 
 [[ "$2" = "Dim" ]] && SC='"method":"set_scene","params":["ct",1000,10]'
 [[ "$2" = "Warm" ]] && SC='"method":"set_scene","params":["ct",3200,100]'
+[[ "$2" = "Micha" ]] && SC='"method":"set_scene","params":["cf",2,1,"50,2,1700,1,180000,2,1700,10,360000,2,2700,15,360000,2,2700,20,540000,2,2700,30,720000,2,2700,40"]'
+[[ "$2" = "Nightlight" ]] && SC='"method":"set_scene","params":["nightlight",'"${3:=10}"']' 
 
 $( dirname $0 )/yeelight.sh "$1" "$SC"
