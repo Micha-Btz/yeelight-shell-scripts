@@ -1,0 +1,12 @@
+#!/bin/bash
+command="/home/dietpi/yeelight-shell-scripts/yeelight-scene.sh 0 Nightlight "
+set -x
+brightness="1"
+COUNTER=25
+	until [  $COUNTER -lt 1 ]; do
+	$command $brightness
+	sleep 30
+	let COUNTER-=1
+	let brightness+=2
+done
+exit 0
