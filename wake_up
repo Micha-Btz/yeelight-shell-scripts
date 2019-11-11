@@ -9,6 +9,11 @@ COUNTER=10
 	let COUNTER-=1
 	let brightness+=1
 done
-sleep 400
+sleep 200
 /home/dietpi/source/yeelight-shell-scripts/yeelight-scene.sh 0 Off
+sleep 180
+/home/dietpi/source/yeelight-shell-scripts/yeelight-brightness.sh 1 30
+/home/dietpi/source/yeelight-shell-scripts/yeelight-toggle.sh 1
+sleep 400
+/home/dietpi/source/yeelight-shell-scripts/yeelight-toggle.sh 1
 exit 0
