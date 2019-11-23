@@ -12,8 +12,7 @@ done
 sleep 200
 /home/dietpi/source/yeelight-shell-scripts/yeelight-scene.sh 0 Off
 sleep 180
-/home/dietpi/source/yeelight-shell-scripts/yeelight-brightness.sh 1 30
-/home/dietpi/source/yeelight-shell-scripts/yeelight-toggle.sh 1
+/home/dietpi/source/yeelight-shell-scripts/yeelight-scene.sh 0 Nightlight 80
 sleep 400
 /home/dietpi/source/yeelight-shell-scripts/yeelight-toggle.sh 1
 exit 0
